@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<Contexto>
-    (options => options.UseSqlServer(""));
+    (options => options.UseSqlServer
+    ("Server=CPX-KIDMJ1HSF2N;Database=ControladorDeVendas;Trusted_Connection=True;"));
+
 
 var app = builder.Build();
 

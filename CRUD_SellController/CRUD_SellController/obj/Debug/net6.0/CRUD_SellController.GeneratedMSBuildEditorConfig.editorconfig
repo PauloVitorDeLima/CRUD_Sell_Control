@@ -18,12 +18,32 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\paulo.vitor.d.lima\Documents\CRUD_ControleDeVendas\CRUD_Sell_Control\CRUD_SellController\CRUD_SellController
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Home/CadastrarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYWRhc3RyYXJDbGllbnRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+[C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Home/CadastrarProduto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYWRhc3RyYXJQcm9kdXRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Home/CadastrarVenda.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYWRhc3RyYXJWZW5kYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Home/GerenciarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXJlbmNpYXJDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Home/GerenciarProduto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXJlbmNpYXJQcm9kdXRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Home/GerenciarVenda.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxHZXJlbmNpYXJWZW5kYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/paulo.vitor.d.lima/Documents/CRUD_ControleDeVendas/CRUD_Sell_Control/CRUD_SellController/CRUD_SellController/Views/Shared/Error.cshtml]

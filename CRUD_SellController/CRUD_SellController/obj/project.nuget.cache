@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "h3ofxv+AZhKjcJrOaEZsNU0zVzdc63PdNpjGDo9c0hgEk2zWyyS6D+eYWBUSs7zHV0VtX4B2R8pb0mXgypOT1g==",
+  "dgSpecHash": "VCN6z7xijeExQtFsYxlauGfDj1CVFyFGW1WX2+nyBwm+1dxNBqfCaKc1q5NCUjnXmenKZkVGTptQJIXtqHZmnA==",
   "success": true,
   "projectFilePath": "C:\\Users\\paulo.vitor.d.lima\\Documents\\CRUD_ControleDeVendas\\CRUD_Sell_Control\\CRUD_SellController\\CRUD_SellController\\CRUD_SellController.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\paulo.vitor.d.lima\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",
     "C:\\Users\\paulo.vitor.d.lima\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\paulo.vitor.d.lima\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\paulo.vitor.d.lima\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["CadstrarVenda"] = "Cadastrar Venda";
+}
+    <h1>Cadastro de Venda</h1>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+    <form id="venda-form">
+        <div class="form-group">
+            <label for="idVenda">Id da Venda:</label>
+            <input type="number" id="idVenda" name="idVenda" required readonly>
+        </div>
+        <div class="form-group">
+            <label for="qtdVenda">Quantidade do produto:</label>
+            <input type="number" id="qtdVenda" name="qtdVenda" required>
+        </div>
+        <div class="form-group">
+            <label for="vlrUnitarioVenda">Valor Unitário:</label>
+            <input type="number" id="vlrUnitarioVenda" name="vlrUnitarioVenda" step="0.01" required>
+        </div>
+        <div class="form-group">
+            <label for="dthVenda">Data Venda:</label>
+            <input type="datetime-local" id="dthVenda" name="dthVenda" required>
+        </div>
+        <div class="form-group">
+            <label for="vlrTotalVenda">Valor da Venda:</label>
+            <input type="number" id="vlrTotalVenda" name="vlrTotalVenda" step="0.01" readonly>
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('venda-form');
+        const errorMessage = document.getElementById('error-message');
+
+    function getLastVendaId() {
+        var ultimoID;
+
+        $.ajax({
+            url: '/Venda/GetLastVendaId',
+            type: 'GET',
+            async: false,
+            success: function (data) {
+                if (data !== null) {
+                    ultimoID = data;
+                } else {
+                    ultimoID = null;
+                }
+            },
+            error: function () {
+                ultimoID = null;
+            }
+        });
+
+        return ultimoID;
+    }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const lastVendaId = getLastVendaId();
+            document.getElementById('idVenda').value = lastVendaId + 1;
+        });
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const idVenda = document.getElementById('idVenda').value;
+            const idCliente = document.getElementById('idCliente').value;
+            const idProduto = document.getElementById('idProduto').value;
+            const qtdVenda = document.getElementById('qtdVenda').value;
+            const vlrUnitarioVenda = document.getElementById('vlrUnitarioVenda').value;
+            const dthVenda = document.getElementById('dthVenda').value;
+
+            const vlrTotalVenda = qtdVenda * vlrUnitarioVenda;
+
+           errorMessage.style.display = 'none';
+            form.reset();
+        });
+    </script>

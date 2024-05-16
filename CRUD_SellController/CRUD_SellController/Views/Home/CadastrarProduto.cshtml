@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["CadstrarProduto"] = "Cadastrar Produto";
+}
+    <h1>Cadastro de Cliente</h1>
+    <div id="error-message" class="error-message" style="display: none;"></div>
+    <form id="cliente-form">
+        <div class="form-group">
+            <label for="idCliente">Id do Cliente:</label>
+            <input type="number" id="idCliente" name="idCliente" required readonly>
+        </div>
+        <div class="form-group">
+            <label for="nmCliente">Nome:</label>
+            <input type="text" id="nmCliente" name="nmCliente" required>
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" required>
+        </div>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('cliente-form');
+        const errorMessage = document.getElementById('error-message');
+
+    function getLastProdutoId() {
+        var ultimoID;
+
+        $.ajax({
+            url: '/Produto/GetLastProdutoId',
+            type: 'GET',
+            async: false,
+            success: function (data) {
+                if (data !== null) {
+                    ultimoID = data;
+                } else {
+                    ultimoID = null;
+                }
+            },
+            error: function () {
+                ultimoID = null;
+            }
+        });
+
+        return ultimoID;
+    }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const lastClientId = getLastClientId();
+            document.getElementById('idCliente').value = lastClientId + 1;
+        });
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const idCliente = document.getElementById('idCliente').value;
+            const nmCliente = document.getElementById('nmCliente').value;
+            const cidade = document.getElementById('cidade').value;
+
+            if (!idCliente || !nmCliente || !cidade) {
+                errorMessage.textContent = 'Por favor, preencha todos os campos.';
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            errorMessage.style.display = 'none';
+            form.reset();
+        });
+    </script>

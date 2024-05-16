@@ -1,19 +1,23 @@
 ﻿using CRUD_SellController.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace SeuNamespace // Substitua "SeuNamespace" pelo namespace do seu projeto
+namespace CRUD_SellController.Controllers
 {
     public class VendaController : Controller
     {
         private readonly Contexto _contexto;
+        private readonly HttpClient _httpClient;
 
-        public VendaController(Contexto contexto)
+        public VendaController(Contexto contexto, IHttpClientFactory httpClientFactory)
         {
             _contexto = contexto;
+            _httpClient = new HttpClient(); // Inicialize o HttpClient
         }
 
         // GET: Venda
@@ -133,6 +137,28 @@ namespace SeuNamespace // Substitua "SeuNamespace" pelo namespace do seu projeto
             var venda = await _contexto.Venda.FindAsync(id);
             _contexto.Venda.Remove(venda);
             await _contexto.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        public async Task<IActionResult> CarregarDadosVenda()
+        {
+            string url = "https://camposdealer.dev/Sites/TesteAPI/venda";
+
+            HttpResponseMessage response = await _httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string json = await response.Content.ReadAsStringAsync();
+
+                List<Venda> vendas = JsonSerializer.Deserialize<List<Venda>>(json);
+
+                _contexto.Venda.AddRange(vendas);
+                await _contexto.SaveChangesAsync();
+            }
+            else
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 

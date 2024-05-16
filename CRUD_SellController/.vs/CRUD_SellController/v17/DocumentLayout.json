@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\paulo.vitor.d.lima\\Documents\\CRUD_ControleDeVendas\\CRUD_Sell_Control\\CRUD_SellController\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3255920E-8765-41B3-98C8-90010BDAAAF9}|CRUD_SellController\\CRUD_SellController.csproj|c:\\users\\paulo.vitor.d.lima\\documents\\crud_controledevendas\\crud_sell_control\\crud_sellcontroller\\crud_sellcontroller\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3255920E-8765-41B3-98C8-90010BDAAAF9}|CRUD_SellController\\CRUD_SellController.csproj|solutionrelative:crud_sellcontroller\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3255920E-8765-41B3-98C8-90010BDAAAF9}|CRUD_SellController\\CRUD_SellController.csproj|c:\\users\\paulo.vitor.d.lima\\documents\\crud_controledevendas\\crud_sell_control\\crud_sellcontroller\\crud_sellcontroller\\controllers\\vendacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3255920E-8765-41B3-98C8-90010BDAAAF9}|CRUD_SellController\\CRUD_SellController.csproj|solutionrelative:crud_sellcontroller\\controllers\\vendacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +27,32 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\paulo.vitor.d.lima\\Documents\\CRUD_ControleDeVendas\\CRUD_Sell_Control\\CRUD_SellController\\CRUD_SellController\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "CRUD_SellController\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\paulo.vitor.d.lima\\Documents\\CRUD_ControleDeVendas\\CRUD_Sell_Control\\CRUD_SellController\\CRUD_SellController\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "CRUD_SellController\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-16T15:33:05.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VendaController.cs",
+              "DocumentMoniker": "C:\\Users\\paulo.vitor.d.lima\\Documents\\CRUD_ControleDeVendas\\CRUD_Sell_Control\\CRUD_SellController\\CRUD_SellController\\Controllers\\VendaController.cs",
+              "RelativeDocumentMoniker": "CRUD_SellController\\Controllers\\VendaController.cs",
+              "ToolTip": "C:\\Users\\paulo.vitor.d.lima\\Documents\\CRUD_ControleDeVendas\\CRUD_Sell_Control\\CRUD_SellController\\CRUD_SellController\\Controllers\\VendaController.cs",
+              "RelativeToolTip": "CRUD_SellController\\Controllers\\VendaController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-16T15:26:36.451Z",
+              "EditorCaption": ""
             }
           ]
         }

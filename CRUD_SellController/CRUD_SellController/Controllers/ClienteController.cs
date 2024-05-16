@@ -1,7 +1,10 @@
 ﻿using CRUD_SellController.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CRUD_SellController.Controllers
@@ -9,10 +12,14 @@ namespace CRUD_SellController.Controllers
     public class ClienteController : Controller
     {
         private readonly Contexto _contexto;
+        private readonly HttpClient _httpClient; // Instância de HttpClient
 
         public ClienteController(Contexto contexto)
         {
             _contexto = contexto;
+
+            // Inicialize o HttpClient
+            _httpClient = new HttpClient();
         }
 
         // GET: Cliente
@@ -21,117 +28,29 @@ namespace CRUD_SellController.Controllers
             return View(await _contexto.Cliente.ToListAsync());
         }
 
-        // GET: Cliente/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // Restante das ações do controlador permanece o mesmo
+
+        // Método para carregar os dados do endpoint correspondente ao Cliente e inseri-los no banco de dados
+        public async Task<IActionResult> CarregarDadosCliente()
         {
-            if (id == null)
+            string url = "https://camposdealer.dev/Sites/TesteAPI/cliente";
+
+            HttpResponseMessage response = await _httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
             {
-                return NotFound();
-            }
+                string json = await response.Content.ReadAsStringAsync();
 
-            var cliente = await _contexto.Cliente.FirstOrDefaultAsync(m => m.idCliente == id);
-            if (cliente == null)
-            {
-                return NotFound();
-            }
+                List<Cliente> clientes = JsonSerializer.Deserialize<List<Cliente>>(json);
 
-            return View(cliente);
-        }
-
-        // GET: Cliente/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Cliente/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("idCliente,nmCliente,cidade")] Cliente cliente)
-        {
-            if (ModelState.IsValid)
-            {
-                _contexto.Add(cliente);
+                _contexto.Cliente.AddRange(clientes);
                 await _contexto.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
-            return View(cliente);
-        }
-
-        // GET: Cliente/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
+            else
             {
-                return NotFound();
+                return StatusCode((int)response.StatusCode);
             }
 
-            var cliente = await _contexto.Cliente.FindAsync(id);
-            if (cliente == null)
-            {
-                return NotFound();
-            }
-            return View(cliente);
-        }
-
-        // POST: Cliente/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("idCliente,nmCliente,cidade")] Cliente cliente)
-        {
-            if (id != cliente.idCliente)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _contexto.Update(cliente);
-                    await _contexto.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ClienteExists(cliente.idCliente))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(cliente);
-        }
-
-        // GET: Cliente/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var cliente = await _contexto.Cliente.FirstOrDefaultAsync(m => m.idCliente == id);
-            if (cliente == null)
-            {
-                return NotFound();
-            }
-
-            return View(cliente);
-        }
-
-        // POST: Cliente/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var cliente = await _contexto.Cliente.FindAsync(id);
-            _contexto.Cliente.Remove(cliente);
-            await _contexto.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

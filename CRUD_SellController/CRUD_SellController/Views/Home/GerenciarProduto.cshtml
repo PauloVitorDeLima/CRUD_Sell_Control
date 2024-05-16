@@ -1,0 +1,47 @@
+﻿@model List<CRUD_SellController.Models.Produto> // Modelo para os produtos
+
+@{
+    ViewData["GerenciarProduto"] = "Gerenciar Produtos";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Gerenciar Produtos</h1>
+    <div>
+        <button onclick="carregarInformacoesProduto()">Carregar Informações do Endpoint</button>
+        <button class="btn btn-primary" onclick="window.location.href = '/CadastrarProduto'">Cadastrar</button>
+
+        <br /><br />
+
+        <form id="select-produto-form" onsubmit="return false;">
+            <label for="produto-id">Selecione um produto:</label>
+            <select id="produto-id" name="produto-id">
+                <option value="">Selecione um produto</option>
+                @foreach (var produto in Model)
+                {
+                    <option value="@produto.idProduto">@produto.dscProduto</option>
+                }
+            </select>
+            <button onclick="selecionarProduto()">Selecionar</button>
+        </form>
+
+        <form id="delete-produto-form" style="display: none;" onsubmit="return false;">
+            <label for="delete-produto-id">Id do Produto:</label>
+            <input type="text" id="delete-produto-id" name="delete-produto-id" readonly>
+            <button onclick="excluirProduto()">Excluir</button>
+        </form>
+
+        <form id="update-produto-form" style="display: none;" onsubmit="return false;">
+
+            <label for="update-produto-id">Id do Produto:</label>
+            <input type="text" id="update-produto-id" name="update-produto-id" readonly>
+
+            <label for="update-produto-descricao">Descrição:</label>
+            <input type="text" id="update-produto-descricao" name="update-produto-descricao">
+
+            <label for="update-produto-valor">Valor Unitário:</label>
+            <input type="number" id="update-produto-valor" name="update-produto-valor" step="0.01">
+
+            <button onclick="atualizarProduto()">Atualizar</button>
+        </form>
+    </div>
+</div>

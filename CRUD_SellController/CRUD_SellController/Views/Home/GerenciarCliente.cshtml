@@ -1,0 +1,42 @@
+﻿@model List<CRUD_SellController.Models.Cliente> // Modelo para os clientes
+
+@{
+    ViewData["GerenciarCliente"] = "Gerenciar Clientes";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Gerenciar Clientes</h1>
+    <div>
+        <!-- Botão para carregar informações do endpoint -->
+        <button onclick="carregarInformacoesCliente()">Carregar Informações do Endpoint</button>
+        <!-- Botão para cadastrar novo cliente -->
+        <button class="btn btn-primary" onclick="window.location.href = '/CadastrarCliente'">Cadastrar</button>
+
+        <br /><br />
+
+        <!-- Formulário para selecionar um cliente -->
+        <form id="select-cliente-form" onsubmit="return false;">
+            <label for="cliente-id">Selecione um cliente:</label>
+            <select id="cliente-id" name="cliente-id">
+                <option value="">Selecione um cliente</option>
+                @foreach (var cliente in Model)
+                {
+                    <option value="@cliente.idCliente">@cliente.nmCliente</option>
+                }
+            </select>
+            <button onclick="selecionarCliente()">Selecionar</button>
+        </form>
+
+        <form id="delete-cliente-form" style="display: none;" onsubmit="return false;">
+            <label for="delete-cliente-id">Id do Cliente:</label>
+            <input type="text" id="delete-cliente-id" name="delete-cliente-id" readonly>
+            <button onclick="excluirCliente()">Excluir</button>
+        </form>
+
+        <form id="update-cliente-form" style="display: none;" onsubmit="return false;">
+            <label for="update-cliente-id">Id do Cliente:</label>
+            <input type="text" id="update-cliente-id" name="update-cliente-id" readonly>
+            <button onclick="atualizarCliente()">Atualizar</button>
+        </form>
+    </div>
+</div>

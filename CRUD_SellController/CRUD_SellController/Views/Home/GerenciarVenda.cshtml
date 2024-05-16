@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["GerenciarVenda"] = "Gerenciar Vendas";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Gerenciar Vendas</h1>
+    <div>
+        <button onclick="carregarInformacoesVenda()">Carregar Informações do Endpoint</button>
+        <button class="btn btn-primary" onclick="window.location.href = '/CadastroVenda'">Cadastrar</button>
+
+        <br /><br />
+        <form id="select-venda-form" onsubmit="return false;">
+            <label for="venda-id">Selecione uma venda:</label>
+            <select id="venda-id" name="venda-id">
+                <option value="">Selecione uma venda</option>
+            </select>
+            <button onclick="selecionarVenda()">Selecionar</button>
+        </form>
+
+        <form id="delete-venda-form" style="display: none;" onsubmit="return false;">
+            <label for="delete-venda-id">Id da Venda:</label>
+            <input type="text" id="delete-venda-id" name="delete-venda-id" readonly>
+            <button onclick="excluirVenda()">Excluir</button>
+        </form>
+
+        <form id="update-venda-form" style="display: none;" onsubmit="return false;">
+            <label for="update-venda-id">Id da Venda:</label>
+            <input type="text" id="update-venda-id" name="update-venda-id" readonly>
+
+            <label for="update-venda-cliente">Cliente:</label>
+            <select id="update-venda-cliente" name="update-venda-cliente">
+                <option value="">Selecione um cliente</option>
+            </select>
+
+            <label for="update-venda-produto">Produto de Interesse:</label>
+            <select id="update-venda-produto" name="update-venda-produto">
+                <option value="">Selecione um produto</option>
+            </select>
+
+            <label for="update-venda-quantidade">Quantidade do produto:</label>
+            <input type="number" id="update-venda-quantidade" name="update-venda-quantidade" min="1">
+
+            <label for="update-venda-valor-unitario">Valor Unitário:</label>
+            <input type="number" id="update-venda-valor-unitario" name="update-venda-valor-unitario" step="0.01">
+
+            <label for="update-venda-data">Data Venda:</label>
+            <input type="datetime-local" id="update-venda-data" name="update-venda-data">
+
+            <label for="update-venda-valor-total">Valor da Venda:</label>
+            <input type="number" id="update-venda-valor-total" name="update-venda-valor-total" step="0.01" readonly>
+
+            <button onclick="atualizarVenda()">Atualizar</button>
+        </form>
+    </div>
+</div>

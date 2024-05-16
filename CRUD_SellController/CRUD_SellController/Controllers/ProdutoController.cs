@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CRUD_SellController.Controllers
@@ -10,10 +12,12 @@ namespace CRUD_SellController.Controllers
     public class ProdutoController : Controller
     {
         private readonly Contexto _contexto;
+        private readonly HttpClient _httpClient;
 
         public ProdutoController(Contexto contexto)
         {
             _contexto = contexto;
+            _httpClient = new HttpClient(); // Inicialize o HttpClient
         }
 
         // GET: Produto
@@ -133,6 +137,29 @@ namespace CRUD_SellController.Controllers
             var produto = await _contexto.Produto.FindAsync(id);
             _contexto.Produto.Remove(produto);
             await _contexto.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> CarregarDadosProduto()
+        {
+            string url = "https://camposdealer.dev/Sites/TesteAPI/produto";
+
+            HttpResponseMessage response = await _httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string json = await response.Content.ReadAsStringAsync();
+
+                List<Produto> produtos = JsonSerializer.Deserialize<List<Produto>>(json);
+
+                _contexto.Produto.AddRange(produtos);
+                await _contexto.SaveChangesAsync();
+            }
+            else
+            {
+                return StatusCode((int)response.StatusCode);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 

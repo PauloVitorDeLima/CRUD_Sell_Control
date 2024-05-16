@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CRUD_SellController")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8a454ad2cce1bb39daa321b3778d36351be315d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6951a8984ba7436850fd03fe9cd954a2a490f445")]
 [assembly: System.Reflection.AssemblyProductAttribute("CRUD_SellController")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CRUD_SellController")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
